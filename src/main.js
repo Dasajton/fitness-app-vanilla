@@ -15,7 +15,7 @@ document.querySelector("#app").innerHTML = /*html*/ `
       <label class="exercise-label">Beine:</label>
       <select name="exercises" id="exercises-select-legs">
        ${exercises.Beine.map((exercise) => {
-         return `
+         return /*html*/ `
         <option>${exercise}</option>
         `;
        }).join("")}
@@ -29,7 +29,7 @@ document.querySelector("#app").innerHTML = /*html*/ `
       <label class="exercise-label">Rücken:</label>
       <select name="exercises" id="exercises-select-back">
        ${exercises.Rücken.map((exercise) => {
-         return `
+         return /*html*/ `
         <option>${exercise}</option>
         `;
        }).join("")}
@@ -43,7 +43,7 @@ document.querySelector("#app").innerHTML = /*html*/ `
       <label class="exercise-label">Brust:</label>
       <select name="exercises" id="exercises-select-chest">
        ${exercises.Brust.map((exercise) => {
-         return `
+         return /*html*/ `
         <option>${exercise}</option>
         `;
        }).join("")}
@@ -57,7 +57,7 @@ document.querySelector("#app").innerHTML = /*html*/ `
       <label class="exercise-label">Schultern:</label>
       <select name="exercises" id="exercises-select-shoulders">
        ${exercises.Schultern.map((exercise) => {
-         return `
+         return /*html*/ `
         <option>${exercise}</option>
         `;
        }).join("")}
@@ -71,7 +71,7 @@ document.querySelector("#app").innerHTML = /*html*/ `
       <label class="exercise-label">Bizeps:</label>
       <select name="exercises" id="exercises-select-biceps">
        ${exercises.Bizeps.map((exercise) => {
-         return `
+         return /*html*/ `
         <option>${exercise}</option>
         `;
        }).join("")}
@@ -85,7 +85,7 @@ document.querySelector("#app").innerHTML = /*html*/ `
       <label class="exercise-label">Trizeps:</label>
       <select name="exercises" id="exercises-select-triceps">
        ${exercises.Trizeps.map((exercise) => {
-         return `
+         return /*html*/ `
         <option>${exercise}</option>
         `;
        }).join("")}
@@ -97,6 +97,9 @@ document.querySelector("#app").innerHTML = /*html*/ `
 
     <!-- Created Workout -->
     <ul id="workout-display"></ul>
+
+    <!-- Workout Stats -->
+    <div id="workout-stats-display"></div>
   </div>
 `;
 
@@ -108,7 +111,11 @@ document.querySelectorAll("button").forEach((button) => {
     const setsInput = document.getElementById(selectId + "-sets");
     const selectedExercise = select.options[select.selectedIndex].text;
     const sets = setsInput.value;
-    workout.push({ exercise: selectedExercise, sets: sets, stats: [] });
+    workout.push({
+      exercise: selectedExercise,
+      sets: sets,
+      stats: [],
+    });
 
     updateWorkoutDisplay();
   });
@@ -119,15 +126,13 @@ function updateWorkoutDisplay() {
   const workoutDisplay = document.getElementById("workout-display");
   workoutDisplay.innerHTML = workout
     .map(
-      (exerciseObj, index) => `
+      (exerciseObj, index) => /*html*/ `
   <li>
-    <p class="exercise-name">${exerciseObj.exercise} - ${
-        exerciseObj.sets
-      } sets</p>
+    <h4>${exerciseObj.exercise} - ${exerciseObj.sets} sets</h4>
     ${Array(exerciseObj.sets)
       .fill()
       .map(
-        (_, setIndex) => `
+        (_, setIndex) => /*html*/ `
     <div>
     Set ${setIndex + 1}:
     <input id="weight-${index}-${setIndex}" type="number" placeholder="Weight">
@@ -138,6 +143,26 @@ function updateWorkoutDisplay() {
       )
       .join("")}
   </li>
+  `
+    )
+    .join("");
+
+  const workoutStatsDisplay = document.getElementById("workout-stats-display");
+  workoutStatsDisplay.innerHTML = workout
+    .map(
+      (exerciseObj, index) => /*html*/ `
+  <div>
+    <h4>${exerciseObj.exercise}</h4>
+    ${exerciseObj.stats
+      .map(
+        (setStats, setIndex) => /*html*/ `
+    <div>
+    Set ${setIndex + 1}: Weight - ${setStats.weight}, Reps - ${setStats.reps}
+    </div>
+    `
+      )
+      .join("")}
+  </div>
   `
     )
     .join("");
