@@ -111,6 +111,15 @@ document.querySelectorAll("button").forEach((button) => {
     const setsInput = document.getElementById(selectId + "-sets");
     const selectedExercise = select.options[select.selectedIndex].text;
     const sets = setsInput.value;
+
+    if (!sets) {
+      alert("Please enter a number of sets for the exercise.");
+      return;
+    } else if (sets < 0) {
+      alert("You should pick to do at least 1 set of an exercise.");
+      return;
+    }
+
     workout.push({
       exercise: selectedExercise,
       sets: sets,
