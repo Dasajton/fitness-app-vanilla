@@ -19,9 +19,14 @@ body {
     .select-container {
         margin: 1rem 0;
 
-        .top-label {
+        label {
             display: block;
+            margin: 0.2rem 0;
+            color: $headings;
+        }
+        .top-label {
             margin-bottom: 0.5rem;
+            color: #fff;
         }
     }
 
