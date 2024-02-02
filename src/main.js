@@ -20,6 +20,7 @@ document.querySelector("#app").innerHTML = /*html*/ `
         `;
        }).join("")}
       </select>
+      <input type="number" id="exercises-select-legs-sets" placeholder="Sets">
       <button data-select-id="exercises-select-legs">Add</button>
     </div>
 
@@ -33,6 +34,7 @@ document.querySelector("#app").innerHTML = /*html*/ `
         `;
        }).join("")}
       </select>
+      <input type="number" id="exercises-select-back-sets" placeholder="Sets">
       <button data-select-id="exercises-select-back">Add</button>
     </div>
 
@@ -46,6 +48,7 @@ document.querySelector("#app").innerHTML = /*html*/ `
         `;
        }).join("")}
       </select>
+      <input type="number" id="exercises-select-chest-sets" placeholder="Sets">
       <button data-select-id="exercises-select-chest">Add</button>
     </div>
 
@@ -59,6 +62,7 @@ document.querySelector("#app").innerHTML = /*html*/ `
         `;
        }).join("")}
       </select>
+      <input type="number" id="exercises-select-shoulders-sets" placeholder="Sets">
       <button data-select-id="exercises-select-shoulders">Add</button>
     </div>
 
@@ -72,6 +76,7 @@ document.querySelector("#app").innerHTML = /*html*/ `
         `;
        }).join("")}
       </select>
+      <input type="number" id="exercises-select-biceps-sets" placeholder="Sets">
       <button data-select-id="exercises-select-biceps">Add</button>
     </div>
 
@@ -85,6 +90,7 @@ document.querySelector("#app").innerHTML = /*html*/ `
         `;
        }).join("")}
       </select>
+      <input type="number" id="exercises-select-triceps-sets" placeholder="Sets">
       <button data-select-id="exercises-select-triceps">Add</button>
     </div>
     </div>
@@ -94,21 +100,60 @@ document.querySelector("#app").innerHTML = /*html*/ `
   </div>
 `;
 
-// Functionality to add exercises into workout array and display the workout in browser
+// Adds sets exercises and sets into workout array and updates the arrays structure
 document.querySelectorAll("button").forEach((button) => {
   button.addEventListener("click", () => {
     const selectId = button.dataset.selectId;
     const select = document.getElementById(selectId);
+    const setsInput = document.getElementById(selectId + "-sets");
     const selectedExercise = select.options[select.selectedIndex].text;
-    workout.push(selectedExercise);
+    const sets = setsInput.value;
+    workout.push({ exercise: selectedExercise, sets: sets, stats: [] });
 
-    const workoutDisplay = document.getElementById("workout-display");
-    workoutDisplay.innerHTML = workout
-      .map(
-        (exercise) => `
-      <li>${exercise}</li>
-    `
-      )
-      .join("");
+    updateWorkoutDisplay();
   });
 });
+
+// Function to update workout display
+function updateWorkoutDisplay() {
+  const workoutDisplay = document.getElementById("workout-display");
+  workoutDisplay.innerHTML = workout
+    .map(
+      (exerciseObj, index) => `
+  <li>
+    <p class="exercise-name">${exerciseObj.exercise} - ${
+        exerciseObj.sets
+      } sets</p>
+    ${Array(exerciseObj.sets)
+      .fill()
+      .map(
+        (_, setIndex) => `
+    <div>
+    Set ${setIndex + 1}:
+    <input id="weight-${index}-${setIndex}" type="number" placeholder="Weight">
+    <input id="reps-${index}-${setIndex}" type="number" placeholder="Reps">
+    <button onclick="saveStats(${index}, ${setIndex})">Save</button>
+    </div>
+    `
+      )
+      .join("")}
+  </li>
+  `
+    )
+    .join("");
+}
+
+// Function to save set stats
+window.saveStats = function (exerciseIndex, setIndex) {
+  const weightInput = document.getElementById(
+    `weight-${exerciseIndex}-${setIndex}`
+  );
+  const repsInput = document.getElementById(
+    `reps-${exerciseIndex}-${setIndex}`
+  );
+  const weight = weightInput.value;
+  const reps = repsInput.value;
+  workout[exerciseIndex].stats[setIndex] = { weight: weight, reps: reps };
+
+  updateWorkoutDisplay();
+};
