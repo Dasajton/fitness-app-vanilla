@@ -90,7 +90,7 @@ document.querySelector("#app").innerHTML = /*html*/ `
     </div>
 
     <!-- Created Workout -->
-    <div id="workout-display"></div>
+    <ul id="workout-display"></ul>
   </div>
 `;
 
@@ -106,7 +106,7 @@ document.querySelectorAll("button").forEach((button) => {
     workoutDisplay.innerHTML = workout
       .map(
         (exercise) => `
-      <p>${exercise}</p>
+      <li>${exercise}</li>
     `
       )
       .join("");
