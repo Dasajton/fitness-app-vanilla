@@ -1,56 +1,7 @@
+import { exercises } from "./data/exercises";
 import "./style.scss";
 
-const exercises = {
-  Brust: [
-    "Bankdrücken",
-    "Schrägbankdrücken",
-    "Negativbankdrücken",
-    "Fliegende",
-    "Butterfly",
-    "Dips",
-  ],
-  Rücken: [
-    "Kreuzheben",
-    "Klimmzüge",
-    "Latziehen",
-    "Vorgebeugtes Rudern",
-    "T-Bar Rudern",
-    "Überzüge",
-  ],
-  Schultern: [
-    "Schulterdrücken",
-    "Seitheben",
-    "Frontheben",
-    "Vorgebeugtes Seitheben",
-    "Nackenziehen",
-  ],
-  Beine: [
-    "Kniebeugen",
-    "Beinpresse",
-    "Ausfallschritte",
-    "Bulgarian Split-Squats",
-    "Beinstrecker",
-    "Beinbeuger",
-    "Wadenheben",
-  ],
-  Bizeps: [
-    "LH-Curls",
-    "KH-Curls",
-    "SZ-Curls",
-    "Hammer-Curls",
-    "Kabel-Curls",
-    "Precher-Curls",
-  ],
-  Trizeps: [
-    "French Press",
-    "Enges Bankdrücken",
-    "Dips",
-    "Trizepsdrücken",
-    "Kickbacks",
-    "Überkopfdrücken",
-  ],
-};
-
+// Workout array that contains exercises
 const workout = [];
 
 document.querySelector("#app").innerHTML = /*html*/ `
