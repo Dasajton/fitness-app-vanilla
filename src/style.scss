@@ -5,11 +5,16 @@
     font-family: sans-serif;
 }
 
+$headings: yellow;
+
 body {
     margin: 0.5rem;
     background-color: #000;
     color: #fff;
 
+    h1 {
+        color: $headings;
+    }
 
     .select-container {
         margin: 1rem 0;
@@ -22,6 +27,10 @@ body {
 
     #workout-display {
         margin: 2rem 0;
+
+        .exercise-name {
+            color: $headings;
+        }
     }
 }
 
