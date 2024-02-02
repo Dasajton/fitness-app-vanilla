@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+
+
+    .select-container {
+        margin: 1rem 0;
+
+        .top-label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    #workout-display {
+        margin: 2rem 0;
+    }
+}
+
+button {
+    cursor: pointer;
+}
+
