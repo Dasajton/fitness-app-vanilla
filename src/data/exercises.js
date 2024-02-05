@@ -40,6 +40,7 @@ export const exercises = {
     "Goblet Kniebeugen",
     "Beinpresse",
     "Ausfallschritte",
+    "Hip-Thrusts",
     "Bulgarian Split-Squats",
     "Beinstrecker",
     "Beinbeuger",
