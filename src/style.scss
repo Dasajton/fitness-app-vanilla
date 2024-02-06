@@ -5,15 +5,39 @@
     font-family: sans-serif;
 }
 
-$headings: yellow;
+$primary: #020617;
+$secondary: #84cc16;
 
 body {
     margin: 0.5rem;
-    background-color: #000;
+    background-color: $primary;
     color: #fff;
+    padding: 0 0.5rem;
+    
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+
+        ul {
+            display: flex;
+            gap: 2rem;
+
+            li {
+                list-style: none;
+
+                a {
+                    text-decoration: none;
+                    color: #fff;
+                    padding: 0.5rem 1rem;
+                }
+            }
+        }
+    }
 
     h1, h4 {
-        color: $headings;
+        color: $secondary;
     }
 
     .select-container {
@@ -22,7 +46,7 @@ body {
         label {
             display: block;
             margin: 0.2rem 0;
-            color: $headings;
+            color: $secondary;
         }
         .top-label {
             margin-bottom: 0.5rem;
@@ -37,5 +61,9 @@ body {
 
 button {
     cursor: pointer;
+}
+
+.active {
+    background-color: #84cc16;
 }
 
