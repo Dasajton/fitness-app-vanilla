@@ -1,4 +1,3 @@
-import { exercises } from "./data/exercises";
 import { getMenu, getCurrentPage } from "./Router";
 import "./style.scss";
 
