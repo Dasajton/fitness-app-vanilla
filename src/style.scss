@@ -9,15 +9,15 @@ $primary: #020617;
 $secondary: #84cc16;
 
 body {
-    margin: 0.5rem;
     background-color: $primary;
     color: #fff;
-    padding: 0 0.5rem;
     
     header {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        border-bottom: 1px solid $secondary;
+        padding: 0.5rem 1rem;
         margin-bottom: 2rem;
 
         ul {
@@ -37,7 +37,7 @@ body {
         }
     }
 
-    h1, h4 {
+    h1, h2, h3, h4 {
         color: $secondary;
     }
 
@@ -62,12 +62,13 @@ body {
 
         label {
             display: block;
-            margin: 0.2rem 0;
+            margin: 0.3rem 0;
             color: $secondary;
         }
         .top-label {
             margin-bottom: 0.5rem;
             color: #fff;
+            font-weight: 600;
         }
     }
 
