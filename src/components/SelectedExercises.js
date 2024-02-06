@@ -3,6 +3,7 @@ import { exercises } from "../data/exercises.js";
 export function SelectExercises() {
   return /*html*/ `
     <div class="select-container">
+      <label class="top-label">Wähle deine Übungen: </label>
       ${Object.keys(exercises).map(createExerciseSelectComponent).join("")}
     </div>
   `;
