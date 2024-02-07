@@ -3,7 +3,7 @@ import { SelectExercises } from "../components";
 const Home = () => {
   return /*html*/ `
     ${SelectExercises()}
-    <div id="workout-display"></div>
+    <ul id="workout-display"></ul>
   `;
 };
 
