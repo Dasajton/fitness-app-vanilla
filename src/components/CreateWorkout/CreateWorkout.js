@@ -1,7 +1,7 @@
-import { exercises } from "../data";
-import { CreateExerciseSelect } from "./";
+import { exercises } from "../../data";
+import { CreateExerciseSelect } from "..";
 
-const SelectExercises = () => {
+const CreateWorkout = () => {
   return /*html*/ `
     <div class="select-container">
       <label class="top-label">Wähle deine Übungen: </label>
@@ -12,4 +12,4 @@ const SelectExercises = () => {
   `;
 };
 
-export default SelectExercises;
+export default CreateWorkout;

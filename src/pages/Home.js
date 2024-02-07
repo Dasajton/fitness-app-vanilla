@@ -1,8 +1,8 @@
-import { SelectExercises } from "../components";
+import { CreateWorkout } from "../components";
 
 const Home = () => {
   return /*html*/ `
-    ${SelectExercises()}
+    ${CreateWorkout()}
     <ul id="workout-display"></ul>
   `;
 };

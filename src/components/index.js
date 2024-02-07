@@ -1,4 +1,4 @@
-import SelectExercises from "./SelectedExercises";
-import CreateExerciseSelect from "./CreateExerciseSelect";
+import CreateWorkout from "./CreateWorkout/CreateWorkout";
+import CreateExerciseSelect from "./CreateWorkout/CreateExerciseSelect";
 
-export { SelectExercises, CreateExerciseSelect };
+export { CreateWorkout, CreateExerciseSelect };
