@@ -1,5 +1,5 @@
-import { exercises } from "../data/exercises.js";
-import { addExercise } from "../helpers/index.js";
+import { exercises } from "../data";
+import { addExercise } from "../helpers";
 
 const CreateExerciseSelect = (muscleGroup) => {
   setTimeout(() => {

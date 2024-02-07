@@ -1,5 +1,5 @@
-import { exercises } from "../data/exercises.js";
-import { CreateExerciseSelect } from "./index.js";
+import { exercises } from "../data";
+import { CreateExerciseSelect } from "./";
 
 const SelectExercises = () => {
   return /*html*/ `
