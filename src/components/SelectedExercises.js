@@ -1,28 +1,35 @@
 import { exercises } from "../data/exercises.js";
+import { addExercise } from "../helpers/index.js";
 
-export function SelectExercises() {
+export default function SelectExercises() {
   return /*html*/ `
     <div class="select-container">
-      ${Object.keys(exercises).map(createExerciseSelectComponent).join("")}
+      <label class="top-label">Wähle deine Übungen: </label>
+      ${Object.keys(exercises)
+        .map((exercise) => createExerciseSelectComponent(exercise))
+        .join("")}
     </div>
   `;
 }
 
 function createExerciseSelectComponent(muscleGroup) {
   return /*html*/ `
-    <div>
+    <div class="exercise-container">
       <label class="exercise-label">${muscleGroup}:</label>
       <select name="exercises" id="exercises-select-${muscleGroup.toLowerCase()}">
        ${exercises[muscleGroup]
          .map((exercise) => {
            return /*html*/ `
-        <option>${exercise}</option>
+        <option value="${exercise}">${exercise}</option>
         `;
          })
          .join("")}
       </select>
-      <input type="number" id="exercises-select-${muscleGroup.toLowerCase()}-sets" placeholder="Sets">
-      <button data-select-id="exercises-select-${muscleGroup.toLowerCase()}">Add</button>
+      <input type="number" id="exercises-select-${muscleGroup.toLowerCase()}-sets" placeholder="Sets" />
+      <button onclick="${(muscleGroup) =>
+        addExercise(
+          muscleGroup
+        )}" data-select-id="exercises-select-${muscleGroup.toLowerCase()}">Add</button>
     </div>
   `;
 }

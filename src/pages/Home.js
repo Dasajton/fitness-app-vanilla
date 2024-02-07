@@ -1,12 +1,10 @@
-import { SelectExercises } from "../components/SelectedExercises.js";
+import { SelectExercises } from "../components";
 
-const PageHome = () => {
+const Home = () => {
   return /*html*/ `
-    <div>
-      ${SelectExercises()}
-      <ul id="workout-display"></ul>
-    </div>
+    ${SelectExercises()}
+    <div id="workout-display"></div>
   `;
 };
 
-export default PageHome;
+export default Home;

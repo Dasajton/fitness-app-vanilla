@@ -7,17 +7,18 @@
 
 $primary: #020617;
 $secondary: #84cc16;
+$white: #fff;
 
 body {
-    margin: 0.5rem;
     background-color: $primary;
-    color: #fff;
-    padding: 0 0.5rem;
+    color: $white;
     
     header {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        border-bottom: 1px solid $secondary;
+        padding: 0.5rem 1rem;
         margin-bottom: 2rem;
 
         ul {
@@ -29,16 +30,39 @@ body {
 
                 a {
                     text-decoration: none;
-                    color: #fff;
+                    color: $white;
                     padding: 0.5rem 1rem;
                     border-radius: 0.2rem;
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        background-color: rgba(darken($white, 50%),0.2);
+                    }
                 }
             }
         }
     }
 
-    h1, h4 {
+    h1, h2, h3, h4 {
         color: $secondary;
+    }
+
+    main {
+        margin: 0 1rem;
+    }
+
+    button {
+        cursor: pointer;
+        padding: 0.3rem;
+        color: $white;
+        background-color: $secondary;
+        border: none;
+        border-radius: 0.2rem;
+        transition: all 0.3s ease;
+    
+        &:hover {
+            background-color: darken($secondary, 10%);
+        }
     }
 
     .select-container {
@@ -62,40 +86,26 @@ body {
 
         label {
             display: block;
-            margin: 0.2rem 0;
+            margin: 0.3rem 0;
             color: $secondary;
         }
         .top-label {
             margin-bottom: 0.5rem;
-            color: #fff;
+            color: $white;
+            font-weight: 600;
         }
     }
 
     #workout-display {
         margin: 2rem 0;
     }
-}
-
-button {
-    cursor: pointer;
-    padding: 0.3rem;
-    color: #fff;
-    background-color: $secondary;
-    border: none;
-    border-radius: 0.2rem;
-    transition: all 0.3s ease;
-
-    &:hover {
-        background-color: darken($secondary, 10%);
+    
+    .active {
+        background-color: $secondary;
+        transition: all 0.3s ease;
+    
+        &:hover {
+            background-color: darken($secondary, 10%);
+        }
     }
 }
-
-.active {
-    background-color: $secondary;
-    transition: all 0.3s ease;
-
-    &:hover {
-        background-color: darken($secondary, 10%);
-    }
-}
-

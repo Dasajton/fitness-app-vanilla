@@ -1,5 +1,5 @@
 import Home from "./Home.js";
-import About from "./About.js";
+import Workout from "./Workout.js";
 import NotFound404 from "./NotFound404.js";
 
-export { Home, About, NotFound404 };
+export { Home, Workout, NotFound404 };
