@@ -1,7 +1,7 @@
 import { exercises } from "../data/exercises.js";
 import { CreateExerciseSelect } from "./index.js";
 
-export default function SelectExercises() {
+const SelectExercises = () => {
   return /*html*/ `
     <div class="select-container">
       <label class="top-label">Wähle deine Übungen: </label>
@@ -10,4 +10,6 @@ export default function SelectExercises() {
         .join("")}
     </div>
   `;
-}
+};
+
+export default SelectExercises;

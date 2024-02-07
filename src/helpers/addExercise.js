@@ -1,4 +1,4 @@
-export default function addExercise(muscleGroup) {
+const addExercise = (muscleGroup) => {
   const exercise = document.getElementById(
     `exercises-select-${muscleGroup.toLowerCase()}`
   ).value;
@@ -12,4 +12,6 @@ export default function addExercise(muscleGroup) {
   workoutDisplay.innerHTML = /*html*/ `
     <li>${exercise}: ${sets} sets</li>
   `;
-}
+};
+
+export default addExercise;
