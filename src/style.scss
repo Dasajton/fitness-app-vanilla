@@ -7,10 +7,12 @@
 
 $primary: #020617;
 $secondary: #84cc16;
+$white: #fff;
 
 body {
     background-color: $primary;
-    color: #fff;
+    color: $white;
+
     
     header {
         display: flex;
@@ -29,9 +31,14 @@ body {
 
                 a {
                     text-decoration: none;
-                    color: #fff;
+                    color: $white;
                     padding: 0.5rem 1rem;
                     border-radius: 0.2rem;
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        background-color: rgba(darken($white, 50%),0.2);
+                    }
                 }
             }
         }
@@ -39,6 +46,24 @@ body {
 
     h1, h2, h3, h4 {
         color: $secondary;
+    }
+
+    main {
+        margin: 0 1rem;
+    }
+
+    button {
+        cursor: pointer;
+        padding: 0.3rem;
+        color: $white;
+        background-color: $secondary;
+        border: none;
+        border-radius: 0.2rem;
+        transition: all 0.3s ease;
+    
+        &:hover {
+            background-color: darken($secondary, 10%);
+        }
     }
 
     .select-container {
@@ -67,7 +92,7 @@ body {
         }
         .top-label {
             margin-bottom: 0.5rem;
-            color: #fff;
+            color: $white;
             font-weight: 600;
         }
     }
@@ -75,28 +100,13 @@ body {
     #workout-display {
         margin: 2rem 0;
     }
-}
-
-button {
-    cursor: pointer;
-    padding: 0.3rem;
-    color: #fff;
-    background-color: $secondary;
-    border: none;
-    border-radius: 0.2rem;
-    transition: all 0.3s ease;
-
-    &:hover {
-        background-color: darken($secondary, 10%);
+    
+    .active {
+        background-color: $secondary;
+        transition: all 0.3s ease;
+    
+        &:hover {
+            background-color: darken($secondary, 10%);
+        }
     }
 }
-
-.active {
-    background-color: $secondary;
-    transition: all 0.3s ease;
-
-    &:hover {
-        background-color: darken($secondary, 10%);
-    }
-}
-

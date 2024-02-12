@@ -1,7 +1,7 @@
 import * as tools from "./tools";
-import { Home, About, NotFound404 } from "./pages/index.js";
+import { Home, Workout, NotFound404 } from "./pages/index.js";
 
-const pageNames = ["Home", "About"];
+const pageNames = ["Home", "Workout"];
 
 const currentPageIdCode = getSmartCurrentPageId();
 
@@ -9,8 +9,8 @@ export const getCurrentPage = () => {
   switch (currentPageIdCode) {
     case "home":
       return Home();
-    case "about":
-      return About();
+    case "workout":
+      return Workout();
     default:
       return NotFound404();
   }
