@@ -3,9 +3,12 @@ import { addExercise } from "../../helpers";
 
 const CreateExerciseSelect = (muscleGroup) => {
   setTimeout(() => {
-    const btnAddElem = document.querySelector(".btn-add");
-    btnAddElem.addEventListener("click", addExercise(muscleGroup));
+    const btnAddElem = document.querySelector(
+      `.btn-add-${muscleGroup.toLowerCase()}`
+    );
+    btnAddElem.addEventListener("click", () => addExercise(muscleGroup));
   }, 0);
+
   return /*html*/ `
       <div class="exercise-container">
         <label class="exercise-label">${muscleGroup}:</label>
@@ -19,7 +22,7 @@ const CreateExerciseSelect = (muscleGroup) => {
            .join("")}
         </select>
         <input type="number" id="exercises-select-${muscleGroup.toLowerCase()}-sets" placeholder="Sets" />
-        <button class="btn-add" data-select-id="exercises-select-${muscleGroup.toLowerCase()}">Add</button>
+        <button class="btn-add-${muscleGroup.toLowerCase()}" data-select-id="exercises-select-${muscleGroup.toLowerCase()}">Add</button>
       </div>
     `;
 };

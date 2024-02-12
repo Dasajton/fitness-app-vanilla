@@ -9,7 +9,7 @@ const addExercise = (muscleGroup) => {
 
   console.log("clicked");
 
-  workoutDisplay.innerHTML = /*html*/ `
+  workoutDisplay.innerHTML += /*html*/ `
     <li>${exercise}: ${sets} sets</li>
   `;
 };
